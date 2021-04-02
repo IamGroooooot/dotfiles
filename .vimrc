@@ -61,9 +61,14 @@ set scrolloff=8
 set autowrite
 " Enable Detection, Plugin, Indent at once
 filetype plugin indent on
+
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
+" Enable 256 colors palette in Gnome Terminal
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
 
 " Change mapleader
 let mapleader=","
