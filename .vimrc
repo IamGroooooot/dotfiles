@@ -2,10 +2,19 @@
 set nocompatible
 " set path for fuzzysearch(can find every file recursively based on current directory)
 set path+=**
-" Enable <Left> or <Right> to navigate through the completion lists
+" Enable wildmenu to navigate through the completion lists
 set wildmenu
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+    set wildignore+=.git\*,.hg\*,.svn\*
+else
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+endif
+
 " Allow backspace in insert mode
 set backspace=indent,eol,start
+set whichwrap+=<,>,h,l
 " Optimize for fast terminal connections
 set ttyfast
 " Enable line number
@@ -13,7 +22,7 @@ set number
 " Enable relative number
 set relativenumber
 " Enable syntax highlighting
-syntax on
+syntax enable
 " Highlight current line
 set cursorline
 " Make tabs as wide as four spaces
@@ -31,8 +40,13 @@ set ignorecase
 set incsearch
 " Set cursor to briefly jump to the matching brace when insert one
 set showmatch
-" Disable error bells
+" Disable annoying sound when error
 set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+" Disable redraw while executing macros (good performance config)
+set lazyredraw 
 " Show the cursor position
 set ruler
 " Show the current mode
@@ -66,3 +80,23 @@ noremap <leader>ss :call StripWhitespace()<CR>
 
 " Get prettier
 nnoremap gp :silent %!prettier --stdin-filepath %<CR>
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+map <C-space> ?
+
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Toggle paste mode on and off
+map <leader>pp :setlocal paste!<cr>
+
