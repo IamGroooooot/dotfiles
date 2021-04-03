@@ -26,11 +26,13 @@ syntax enable
 " Highlight current line
 set cursorline
 " Make tabs as wide as four spaces
-set tabstop=4
+set tabstop=4 softtabstop=4
 " Make tabs using <, > as four spaces
 set shiftwidth=4
+" Expand tab to spaces
+set expandtab
 " Show invisible characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+" set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
 " Highlight searches
 set hlsearch
@@ -105,3 +107,16 @@ map <C-l> <C-W>l
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
+" Make tag files
+command! MakeTags !ctags -R .
+
+" Configure netrc
+" shortcut => open: <CR>/v or <CR>/t, exit: only or tabonly
+" Disable annoying banners that covers half of the screen
+let g:netrw_banner=0
+" Open file in prior window
+let g:netrw_browse_split=4
+" Open file splits to the right
+let g:netrw_altv=1
+" Set List sytle to tree view
+let g:betrw_liststyle=3
