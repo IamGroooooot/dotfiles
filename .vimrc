@@ -68,9 +68,9 @@ set autowrite
 " Enable Detection, Plugin, Indent at once
 filetype plugin indent on
 
-" Use the Solarized Dark theme
+" Use the https://github.com/nanotech/jellybeans.vim Dark theme
 set background=dark
-colorscheme solarized
+colorscheme jellybeans
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
