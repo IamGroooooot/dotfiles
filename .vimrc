@@ -1,5 +1,9 @@
 " Make Vim more useful
 set nocompatible
+" sets gvim language to Engish
+set langmenu=en_US.UTF-8
+" sets vim language to English
+language en
 " set path for fuzzysearch(can find every file recursively based on current directory)
 set path+=**
 " Enable wildmenu to navigate through the completion lists
