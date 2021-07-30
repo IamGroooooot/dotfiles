@@ -1,6 +1,6 @@
 " Make Vim more useful
 set nocompatible
-" sets gvim language to Engish
+" sets gvim language to English
 set langmenu=en_US.UTF-8
 " sets vim language to English
 language en
