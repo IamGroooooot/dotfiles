@@ -65,6 +65,8 @@ set showcmd
 set scrolloff=8
 " Enable auto writing when moved to other file
 set autowrite
+" set vim to use primary (* - copy on select) clipboard$
+69  set clipboard=unnamed
 " Enable Detection, Plugin, Indent at once
 filetype plugin indent on
 
