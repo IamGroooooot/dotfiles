@@ -65,8 +65,8 @@ set showcmd
 set scrolloff=8
 " Enable auto writing when moved to other file
 set autowrite
-" set vim to use primary (* - copy on select) clipboard$
-69  set clipboard=unnamed
+" set vim to use primary (* - copy on select) clipboard
+set clipboard=unnamed
 " Enable Detection, Plugin, Indent at once
 filetype plugin indent on
 
@@ -76,6 +76,12 @@ colorscheme jellybeans
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
+endif
+
+" when reopening a file move pos to " mark 
+" " mark stores the last position in the current file and is saved in the ~/.viminfo file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 " Change mapleader
@@ -91,7 +97,7 @@ function! StripWhitespace()
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 
-" Get prettier
+" Get prettier (`yarn global add prettier` first)
 nnoremap gp :silent %!prettier --stdin-filepath %<CR>
 
 " Fast saving
@@ -126,3 +132,35 @@ let g:netrw_browse_split=4
 let g:netrw_altv=1
 " Set List sytle to tree view
 let g:betrw_liststyle=3
+
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+" Make sure you use single quotes
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" Any valid git URL is allowed
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Initialize plugin system
+call plug#end()
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='murmur'
