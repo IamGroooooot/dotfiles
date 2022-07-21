@@ -2,19 +2,68 @@
 	name = Juhyeong Ko
 	email = dury.ko@gmail.com
 [core]
+	editor = vim
 	excludesfile = /Users/juhyeong/.gitignore_global
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	quotepath = false
 [commit]
 	template = /Users/juhyeong/.stCommitMsg
+[color]
+	ui = auto
+[diff]
+	tool = vimdiff
 [alias]
-	co = checkout
-	rb = rebase -i
-	st = status
+	a = add --all
+	ad = add
+	##############
 	cm = commit
+	cam = commit -am
+	cem = commit --allow-empty -m
+	##############
+	st = status
+	sb = status -s -b
+	lg = log --graph --abbrev-commit --decorate --format=format:'%C(cyan)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(yellow)%d%C(reset)' --all
+	##############
+	w = show
+	##############
+	sw = switch
+	sm = switch main
+	co = checkout
+	##############
+	br = branch
+	ba = branch -a
+	bd = branch -d
+	bdd = branch -D
+	br = branch -r
+	bc = rev-parse --abbrev-ref HEAD
+	bu = !git rev-parse --abbrev-ref --symbolic-full-name "@{u}"
+	bs = !git-branch-status
+	##############
+	rb = rebase -i
+	rh = reset HEAD
+	##############
+	r = remote
+	rv = remote -v
+	##############
 	pl = pull
 	ps = push
-	lg = log --graph --abbrev-commit --decorate --format=format:'%C(cyan)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(yellow)%d%C(reset)' --all
-	ad = add
+	##############
 	tg = tag -n
+	##############
 	df = diff
-	br = branch
+	dp = diff --patience
+	dc = diff --cached
+	dk = diff --check
+	dck = diff --cached --check
+	dt = difftool
+	dct = difftool --cached
+	##############
+	g = grep -p
+	##############
+	aliases = !git config -l | grep alias | cut -c 7-
+	whois = !sh -c 'git log -i -1 --author=\"$1\" --pretty=\"format:%an <%ae>\"' -
+	##############
+	behind = !git rev-list --left-only --count $(git bu)...HEAD
+	ahead = !git rev-list --right-only --count $(git bu)...HEAD
+	
+	
