@@ -1,12 +1,12 @@
 [user]
 	name = Juhyeong Ko
 	email = dury.ko@gmail.com
+[init]
+	templatedir = ~/.git-templates
 [core]
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	quotepath = false
-[commit]
-	template = /Users/juhyeong/.stCommitMsg
 [color]
 	ui = auto
 [diff]
@@ -64,5 +64,4 @@
 	##############
 	behind = !git rev-list --left-only --count $(git bu)...HEAD
 	ahead = !git rev-list --right-only --count $(git bu)...HEAD
-	
 	
