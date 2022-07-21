@@ -1,5 +1,8 @@
+# set language of environment
+export LANG=en_US.UTF-8
+
 # alias
-alias lsd='lsd --group-dirs first' # lsd group first
+alias lsd='lsd --date=relative --group-dirs=first --size=short -l' # lsd group first
 alias glg="git log --graph --oneline --decorate" # pretty git log
 
 # man page coloring
