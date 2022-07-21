@@ -3,7 +3,6 @@
 	email = dury.ko@gmail.com
 [core]
 	editor = vim
-	excludesfile = /Users/juhyeong/.gitignore_global
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	quotepath = false
 [commit]
