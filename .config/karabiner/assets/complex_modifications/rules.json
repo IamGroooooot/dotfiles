@@ -1,5 +1,5 @@
 {
-  "title": "Juhyeong's frequently used rules",
+  "title": "Juhyeong's mostly used modification rules",
   "rules": [
     {
       "description": "Fn + c => Ctrl + c",
@@ -125,6 +125,36 @@
             {
               "key_code": "v",
               "modifiers": ["left_command", "left_option", "left_shift"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Command + Shift + i => Opt + Shift + i (avoid creating new email in browers)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": ["left_command", "shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "i",
+              "modifiers": ["left_command", "left_option"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.google.Chrome",
+                "^com.brave.Browser",
+                "^org.mozilla.firefox"
+              ]
             }
           ]
         }
