@@ -7,10 +7,14 @@
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	quotepath = false
+	commentChar = ";" 	# can use hash as message
 [color]
 	ui = auto
 [diff]
 	tool = vimdiff
+[delta]
+	features = decorations  	# line numbers
+	navigate = true 		# use n and N to move between diff sections
 [alias]
 	a = add --all
 	ad = add
@@ -22,6 +26,7 @@
 	st = status
 	sb = status -s -b
 	lg = log --graph --abbrev-commit --decorate --format=format:'%C(cyan)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(yellow)%d%C(reset)' --all
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 	##############
 	w = show
 	##############
@@ -64,4 +69,6 @@
 	##############
 	behind = !git rev-list --left-only --count $(git bu)...HEAD
 	ahead = !git rev-list --right-only --count $(git bu)...HEAD
+	##############
+	zip = archive -o latest.zip HEAD
 	
