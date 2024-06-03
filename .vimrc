@@ -1,9 +1,9 @@
 " Make Vim more useful
 set nocompatible
 " sets gvim language to English
-set langmenu=en_US.UTF-8
+" set langmenu=en_US.UTF-8
 " sets vim language to English
-language en_US.UTF-8
+" language en_US.UTF-8
 " set path for fuzzysearch(can find every file recursively based on current directory)
 set path+=**
 " Enable wildmenu to navigate through the completion lists
@@ -36,8 +36,8 @@ set shiftwidth=4
 " Expand tab to spaces
 set expandtab
 " Show invisible characters
-" set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
+"  set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+"  set list
 " Highlight searches
 set hlsearch
 " Ignore case when searches
@@ -66,11 +66,12 @@ set scrolloff=8
 " Enable auto writing when moved to other file
 set autowrite
 " set vim to use primary (* - copy on select) clipboard
-set clipboard=unnamed
+"  set clipboard=unnamed
 " Enable Detection, Plugin, Indent at once
 filetype plugin indent on
 
-" Use the https://github.com/nanotech/jellybeans.vim Dark theme
+" Install jellybeans theme first
+" mkdir -p ~/.vim/colors && cd ~/.vim/colors && curl -O https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
 set background=dark
 colorscheme jellybeans
 " Enable 256 colors palette in Gnome Terminal
@@ -119,6 +120,10 @@ map <C-l> <C-W>l
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
+" vim easy align
+nmap ga <Plug>(EasyAlign) " start EasyAlign in visual mode (e.g. vipga=, vipga2=, vipga*=)
+xmap ga <Plug>(EasyAlign) " start EasyAlign for motion/text object (e.g. gaip=, gaip2=, gaip*=)
+
 " Make tag files
 command! MakeTags !ctags -R .
 
@@ -133,22 +138,10 @@ let g:netrw_altv=1
 " Set List sytle to tree view
 let g:betrw_liststyle=3
 
-call plug#begin()
-" The default plugin directory will be as follows:
-"   - Vim (Linux/macOS): '~/.vim/plugged'
-"   - Vim (Windows): '~/vimfiles/plugged'
-"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
-" You can specify a custom plugin directory by passing it as the argument
-"   - e.g. `call plug#begin('~/.vim/plugged')`
-"   - Avoid using standard Vim directory names like 'plugin'
-
 " Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+call plug#begin()
+" Shorthand notation;
 Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -163,4 +156,4 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='murmur'
+let g:airline_theme='ayu_dark'
