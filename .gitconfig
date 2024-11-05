@@ -1,74 +1,81 @@
 [user]
-	name = Juhyeong Ko
-	email = dury.ko@gmail.com
+    name = Juhyeong Ko
+    email = dury.ko@gmail.com
 [init]
-	templatedir = ~/.git-templates
+    #templatedir = ~/.git-templates
+    defaultBranch = main
 [core]
-	editor = vim
-	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	quotepath = false
-	commentChar = ";" 	# can use hash as message
+    editor = vim
+    quotepath = false
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
+    commentChar = ";" # can use hash as message
 [color]
-	ui = auto
+    ui = auto
 [diff]
-	tool = vimdiff
-[delta]
-	features = decorations  	# line numbers
-	navigate = true 		# use n and N to move between diff sections
+    tool = vimdiff
 [alias]
-	a = add --all
-	ad = add
-	##############
-	cm = commit
-	cam = commit -am
-	cem = commit --allow-empty -m
-	##############
-	st = status
-	sb = status -s -b
-	lg = log --graph --abbrev-commit --decorate --format=format:'%C(cyan)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(yellow)%d%C(reset)' --all
-	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-	##############
-	w = show
-	##############
-	sw = switch
-	sm = switch main
-	co = checkout
-	##############
-	br = branch
-	ba = branch -a
-	bd = branch -d
-	bdd = branch -D
-	br = branch -r
-	bc = rev-parse --abbrev-ref HEAD
-	bu = !git rev-parse --abbrev-ref --symbolic-full-name "@{u}"
-	bs = !git-branch-status
-	##############
-	rb = rebase -i
-	rh = reset HEAD
-	##############
-	r = remote
-	rv = remote -v
-	##############
-	pl = pull
-	ps = push
-	##############
-	tg = tag -n
-	##############
-	df = diff
-	dp = diff --patience
-	dc = diff --cached
-	dk = diff --check
-	dck = diff --cached --check
-	dt = difftool
-	dct = difftool --cached
-	##############
-	g = grep -p
-	##############
-	aliases = !git config -l | grep alias | cut -c 7-
-	whois = !sh -c 'git log -i -1 --author=\"$1\" --pretty=\"format:%an <%ae>\"' -
-	##############
-	behind = !git rev-list --left-only --count $(git bu)...HEAD
-	ahead = !git rev-list --right-only --count $(git bu)...HEAD
-	##############
-	zip = archive -o latest.zip HEAD
-	
+    # Simple sub-commands from "https://github.com/ahmetsait/toolgit"
+    graph = log --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)%n' --abbrev-commit --date=relative --branches
+    amend = commit --amend --no-edit
+    dir = rev-parse --git-dir
+    root = rev-parse --show-toplevel
+    # Shortcuts
+    ## Add, Commit
+    a = add --all
+    ad = add
+    cm = commit
+    cam = commit -am
+    cem = commit --allow-empty -m
+    ## Status, Logs
+    st = status
+    sb = status -s -b
+    lg = log --graph --abbrev-commit --decorate --format=format:'%C(cyan)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(yellow)%d%C(reset)' --all
+    w = show
+    ## Head, Branch
+    sw = switch
+    sm = switch main
+    co = checkout
+    br = branch
+    ba = branch -a
+    bd = branch -d
+    bdd = branch -D
+    br = branch -r
+    bc = rev-parse --abbrev-ref HEAD
+    bu = !git rev-parse --abbrev-ref --symbolic-full-name "@{u}"
+    bs = !git-branch-status
+    ## Rebase
+    rb = rebase -i
+    rh = reset HEAD
+    ## Remote
+    r = remote
+    rv = remote -v
+    pl = pull
+    ps = push
+    ## Tag
+    tg = tag -n
+    ## Diff
+    df = diff
+    dp = diff --patience
+    dc = diff --cached
+    dk = diff --check
+    dck = diff --cached --check
+    dt = difftool
+    dct = difftool --cached
+    ## Utils
+    g = grep -p
+    aliases = !git config -l | grep alias | cut -c 7-
+    whois = !sh -c 'git log -i -1 --author=\"$1\" --pretty=\"format:%an <%ae>\"' -
+    ## Misc
+    behind = !git rev-list --left-only --count $(git bu)...HEAD
+    ahead = !git rev-list --right-only --count $(git bu)...HEAD
+[i18n]
+    commitEncoding = utf-8
+    logOutputEncoding = utf-8
+[pager]
+    #diff = diff-so-fancy | less --tabs=4 -RFX
+    #show = diff-so-fancy | less --tabs=4 -RFX
+[push]
+    autoSetupRemote = true
+[pull]
+    rebase = true
