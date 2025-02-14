@@ -46,6 +46,8 @@ alias reload='source ~/.zshrc'
 # utility aliases
 alias myip='curl -s ipinfo.io/ip'
 alias ports='lsof -i -P -n | grep LISTEN'
+alias -g L='| less' # ex. ps aux L
+alias -g G='| grep' # ex. ps aux G docker
 
 # shortcuts for common commands
 alias lsd='lsd --date=relative --group-dirs=first --size=short -l' # lsd group first
