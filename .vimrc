@@ -67,6 +67,10 @@ set scrolloff=8
 set autowrite
 " set vim to use primary (* - copy on select) clipboard
 "  set clipboard=unnamed
+" Create swap, backup, undo files in a special location. (two trailing slashes avoids name collision)
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 " Enable Detection, Plugin, Indent at once
 filetype plugin indent on
 
