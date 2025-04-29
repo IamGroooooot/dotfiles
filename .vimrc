@@ -68,6 +68,7 @@ set autowrite
 " set vim to use primary (* - copy on select) clipboard
 "  set clipboard=unnamed
 " Create swap, backup, undo files in a special location. (two trailing slashes avoids name collision)
+" mkdir -p ~/.vim/{undo,swap,backup} # Create directory first
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
